@@ -1,5 +1,4 @@
 # Trainee
-# Trainee - UEPB
 
 ![Logo](link-para-o-logo.png)
 
