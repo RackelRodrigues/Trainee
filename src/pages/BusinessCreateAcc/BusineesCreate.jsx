@@ -1,15 +1,14 @@
 import styled from "styled-components";
-import { FaRegEye } from "react-icons/fa";
-import { FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import ImgLogo from '../../image/logo_Developer.jpeg';
 import { MdOutlineMailOutline } from "react-icons/md";
+import { IoIosBusiness } from "react-icons/io";
+import { TbNumbers } from "react-icons/tb";
+import { FaRegEye } from "react-icons/fa";
+import { FaRegEyeSlash } from "react-icons/fa";
 import { RxLockOpen1 } from "react-icons/rx";
 import { RxLockClosed } from "react-icons/rx";
-import { GoPerson } from "react-icons/go";
-import { RiCake2Line } from "react-icons/ri";
-
-
+import Header from "../../components/Header/header";
 
 const Background = styled.div`
 background-color: #161A1D;
@@ -23,7 +22,7 @@ width: 650px;
 height: 600px;
 background-color: #D9D9D9;
 border-radius: 15px;
-margin-top: 35px;
+
 `;
 
 
@@ -65,17 +64,6 @@ align-items: center;
 margin-top: 20px;
 `;
 
-
-const Conteinerinputbirthday = styled.div`
-width: 140px;
-height: 40px;
-border-radius: 7px;
-background-color: #A8A29E;
-display: flex;
-align-items: center;
-margin-top: 20px;
-`;
-
 const Input = styled.input`
 background-color: transparent;
 color: #18181b;
@@ -98,6 +86,7 @@ font-weight: 200;
 color: ${(props) => props.color};
 cursor: pointer;
 margin-left: 5px;
+text-decoration: none;
 `;
 
 
@@ -111,6 +100,7 @@ color: #fff;
 cursor: pointer;
 margin-top: 30px;
 `;
+
 
 
 
@@ -135,36 +125,13 @@ justify-content: center;
 flex-direction: column;
 `;
 
+const LinkBusiness = styled.a`
+font-family: Raleway;
+font-size: 15px;
+font-weight: 200;
+color: ${(props) => props.color};
+cursor: Pointer;
 
-const Checkbox = styled.input`
-  background-color: #000;
-  color: #000;
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
-  margin-right: 5px;
-
-`;
-
-const Boxcheckbox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #000;
-  font-family: Raleway;
-  font-size: 15px;
-  font-weight: 100;
-  margin-left: 15px;
-`;
-
-const AlignCenter = styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
-width: 400px;
-height: 75px;
-align-self: center ;
 `;
 
 const ToggleButton = styled.button`
@@ -176,12 +143,12 @@ const ToggleButton = styled.button`
 
 
 
-const CreateAccount = ()=>{
+
+const BusinessCreate = () =>{
     const [senha, setSenha] = useState('');
     const [confirmesenha, setConfirmeSenha] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
-    const [notificacoes, setNotificacoes] = useState(false);
     const togglePasswordVisibility = () => {
         setShowPassword(prev => !prev);
     };
@@ -189,9 +156,10 @@ const CreateAccount = ()=>{
       setShowPassword2(prev => !prev);
   };
 
-    return(
-        <>
-         <Background>
+  return(
+  <>
+  <Header/>
+  <Background>
 <Conteiner>
 <Conteinerall>
 <BoxLogo>
@@ -202,11 +170,11 @@ const CreateAccount = ()=>{
 
                 <Conteinerinput>
                     <BoxSvg>
-            <GoPerson size={25} color='#000'/>
+            <IoIosBusiness size={25} color='#000'/>
                     </BoxSvg>
                     
                     <Input
-                    placeholder="Nome Completo"
+                    placeholder="Nome da empresa"
                       />
                 </Conteinerinput>
 
@@ -216,11 +184,20 @@ const CreateAccount = ()=>{
                     </BoxSvg>
                     
                     <Input
-                    placeholder="Email Constitucional"
+                    placeholder="Email"
                       />
                 </Conteinerinput>
 
-         
+                <Conteinerinput>
+                    <BoxSvg>
+            <TbNumbers size={25} color='#000'/>
+                    </BoxSvg>
+                    
+                    <Input
+                    placeholder="CNPJ"
+                    
+                      />
+                </Conteinerinput>
 
                 <Conteinerinput>
                     <BoxSvg>
@@ -252,29 +229,9 @@ const CreateAccount = ()=>{
                 {showPassword2 ? <FaRegEye size={20}/> : <FaRegEyeSlash  size={20}/>}
               </ToggleButton>
                 </Conteinerinput>
-
-                <AlignCenter>
-                <Conteinerinputbirthday>
-                    <BoxSvg>
-                 <RiCake2Line  size={20} color='#000'/>
-                    </BoxSvg>
-                    
-                    <Input
-                    type="date"
-                    placeholder="15/05/2001"
-                      />
-                </Conteinerinputbirthday>
-                <Boxcheckbox>
-<Checkbox  
-type="checkbox"
-checked={notificacoes}
- onChange={(e) => setNotificacoes(e.target.checked)}/>
-Receber Notificações
-</Boxcheckbox>
-</AlignCenter>
                  <Button>Criar Conta</Button>
                 <ConteinerLink>
-                 <Forget color="#000">Já tem uma conta?</Forget> <Forget color="#6554E1">Faça Login</Forget>
+                 <Forget color="#000" href="/Login">Já tem uma conta?</Forget> <Forget color="#6554E1" href="/Login">Faça Login</Forget>
               </ConteinerLink>
               </Conteinerall>
 </Conteiner>
@@ -282,9 +239,8 @@ Receber Notificações
 
   </Background>
   
-        </>
-    )
+  
+  </>)
 }
 
-
-export default CreateAccount;
+export default BusinessCreate;
