@@ -15,7 +15,7 @@ Trainee é um website que visa facilitar a conexão entre estudantes da UEPB e e
 
 ## Contato
 
-- **Desenvolvedora Front end e Design:** Rackel Rodrigues
+- **Desenvolvedora Front-end e Design:** Rackel Rodrigues
 - **LinkedIn:** [Rackel Rodrigues](https://www.linkedin.com/in/rackel-rodrigues-708b57212/)
 - **E-mail:** [SeuEmail](mailto:rackelrodrigues247@gmail.com)
 
@@ -27,4 +27,6 @@ Trainee é um website que visa facilitar a conexão entre estudantes da UEPB e e
 
 ---
 
-Este é apenas um exemplo básico, você pode customizá-lo conforme as características específicas do seu projeto.
+ -**Desenvolvedor Front-end:** Higo Oliveira
+- **LinkedIn:** [Higo Oliveira](https://www.linkedin.com/in/higo-oliver/)
+- **E-mail:**[SeuEmail](mailto:higo.oliver7@gmail.com) 
