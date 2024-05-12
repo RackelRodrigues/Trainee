@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Cardvacancy from "../../CardVacancy/CardVacancy";
+import Cardvacancy from "../../components/CardVacancy/CardVacancy";
 import HeaderLogged from "../../components/HeaderLogged/HeaderLogged";
 import ImgLogo from '../../image/logo_Developer.jpeg';
 

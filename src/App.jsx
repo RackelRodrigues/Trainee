@@ -2,13 +2,18 @@ import styled from 'styled-components';
 import Menina from './image/Menina.png';
 import ImgLogo from './image/logo_Developer.jpeg';
 import { IoArrowDownCircleOutline } from "react-icons/io5";
-
+import Mainlanding from './components/mainLanding/Mainlanding';
 
 
 const Background = styled.div`
 background-color: #161A1D;
 height: 100vh;
+overflow-x: hidden; 
 
+`;
+
+const Container = styled.div`
+  display: flex;
 `;
 
 const ButtonSvg = styled.div`
@@ -29,7 +34,7 @@ const ConteinerHeader = styled.div`
   justify-content: space-between; 
   align-items: center;
   padding: 0 20px; 
-  position: fixed; 
+  position: sticky; 
   top: 0;
   z-index: 1000;
 
@@ -46,7 +51,7 @@ border-radius: 10px;
 
 const NameLogo = styled.h3`
 font-family: Handjet;
-font-size: 20px;
+font-size: 28px;
 font-weight: 400;
 color: #000;
 margin-left: 10px;
@@ -83,13 +88,24 @@ flex-direction: row;
 `;
 
 const ConteinerWhite = styled.div`
+position: absolute;
 width: 963px;
 height:700px;
 background-color: #CACFE7;
-
+display: flex;
+justify-content: flex-start;
+top: 0;
 `;
 
-const Text =styled.h2``;
+const Text = styled.h2`
+font-family: Noto Sans;
+font-size: 50px;
+font-weight: 800;
+width: 400px;
+
+
+
+`;
 
 const ButtonNow = styled.button`
 width: 150px;
@@ -104,9 +120,46 @@ margin-right: 110px;
 color: #CACFE7;
 `;
 
+
+const ButtonStart = styled.button`
+color: #CACFE7;
+width: 200px;
+height: 40px;
+border-radius: 15px;
+font-family: Raleway;
+font-size: 20px;
+font-weight: 100;
+background-color: #6554E1;
+cursor: pointer;
+
+
+
+`;
+
+
+
+const Conteinerlanding = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 100%;
+height: 100%;
+margin-left: 60px;
+`;
+
+const BoxArrow = styled.div``;
+
+const Conteinergirl = styled.div`
+position: relative;
+top: -150px;
+right: -850px;
+`;
+
+
 const Img = styled.img`
-width: 690px;
-height: 510px;
+width: 670px;
+height: 490px;
 
 `;
 
@@ -127,14 +180,13 @@ box-shadow: 3.67px 1.83px 1.83px 0px #00000040;
 
 const Boll1 = styled.div`
  position: relative; 
-  top: -150px;
-  left: 260px;
+  top: -190px;
+left: 300px;
  background-color: rgba(101, 84, 225, 0.7);
  border-radius: 50%;
  width: 300px;
 height: 300px;
-box-shadow: 8px 4px 4px 0px #00000040;
-
+box-shadow: 8px 8px 4px 0px #00000040;
 z-index: 1;
 
 `;
@@ -171,13 +223,33 @@ function App() {
 </ConteinerButtons>
 <ButtonNow>Contact Us</ButtonNow>
    </ConteinerHeader>
+   <Container>
    <ConteinerWhite>
 <BoxLogo>
-  <IoArrowDownCircleOutline size={60} color='#000'/>
+  <Conteinerlanding>
+  <Text>Dê um passo adiante na sua 
+    carreira com nossas oportunidades 
+    de estágio!</Text>
+    <ButtonStart>Comece Agora</ButtonStart>
+
+
+
+    </Conteinerlanding>
+
+<IoArrowDownCircleOutline size={45} color='#000'/>
 </BoxLogo>
    </ConteinerWhite>
-   
+   <Conteinergirl>
+   <Boll/>
+    <MaiorBoll>
+    <Img src={Menina} alt='Menina ao celular'/>
+
+    </MaiorBoll>
+    <Boll1/>
+   </Conteinergirl>
+   </Container>
    </Background>
+   <Mainlanding/>
     </>
   );
 }
