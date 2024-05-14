@@ -52,7 +52,7 @@ width: 800px;
 const Mainlanding = ()=>{
     return(
         <>
-        <Background>
+        <Background id='quem-somos'>
             <H2>A 
                 <Trainee>Trainee</Trainee>
              é um site de estágio exclusivo para 

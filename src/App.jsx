@@ -3,7 +3,7 @@ import Menina from './image/Menina.png';
 import ImgLogo from './image/logo_Developer.jpeg';
 import { IoArrowDownCircleOutline } from "react-icons/io5";
 import Mainlanding from './components/mainLanding/Mainlanding';
-
+import Footer from './components/Footer/Footer';
 
 const Background = styled.div`
 background-color: #161A1D;
@@ -217,11 +217,16 @@ function App() {
 <NameLogo>Trainee</NameLogo>
 </BoxLogo>
 <ConteinerButtons>
-<ButtonsHeader>Home</ButtonsHeader>
-<ButtonsHeader>Quem Somos</ButtonsHeader>
-<ButtonsHeader>Login</ButtonsHeader>
+<ButtonsHeader href='/'>Home</ButtonsHeader>
+<ButtonsHeader onClick={() => {
+    const historiaSection = document.getElementById('quem-somos');
+    if (historiaSection) {
+        historiaSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}}>Quem Somos</ButtonsHeader>
+<ButtonsHeader href='/Login'>Login</ButtonsHeader>
 </ConteinerButtons>
-<ButtonNow>Contact Us</ButtonNow>
+<ButtonNow href=''>Contact Us</ButtonNow>
    </ConteinerHeader>
    <Container>
    <ConteinerWhite>
@@ -250,6 +255,7 @@ function App() {
    </Container>
    </Background>
    <Mainlanding/>
+   <Footer/>
     </>
   );
 }

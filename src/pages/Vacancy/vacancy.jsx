@@ -1,12 +1,14 @@
 import styled from "styled-components";
-import Cardvacancy from "../../components/CardVacancy/CardVacancy";
 import HeaderLogged from "../../components/HeaderLogged/HeaderLogged";
-import ImgLogo from '../../image/logo_Developer.jpeg';
+import { IoLocationOutline } from "react-icons/io5";
+import { CgScreen } from "react-icons/cg";
+import { IoCodeSlashOutline } from "react-icons/io5";
+import { BiSolidBusiness } from "react-icons/bi";
+
 
 const Background = styled.div`
 background-color: #161A1D;
 height: 100%;
-
 `;
 
 const Titulo = styled.h2`
@@ -21,21 +23,13 @@ height: 5vh;
 
 `;
 
-const LoggedUser = ()=>{
+
+
+const Vacancy = ()=>{
     return(<>
     <HeaderLogged/>
-    <Background>
-    <Titulo>Estágios Disponíveis</Titulo>
-    <Cardvacancy/>
-    <Cardvacancy/>
-    <Cardvacancy/>
-    <Cardvacancy/>
-    <Cardvacancy/>
-    <Cardvacancy/>
-    </Background>
-
     </>)
 }
 
 
-export default LoggedUser;
+export default Vacancy;

@@ -8,6 +8,7 @@ import Createaccount from './pages/UserCreateAccount/Createaccount.jsx';
 import ErrorPage from './pages/Erropage/Erropage.jsx';
 import LoggedUser from './pages/loggedUser/loggedUser.jsx';
 import User from './pages/User/User.jsx';
+import Vacancy from './pages/Vacancy/vacancy.jsx';
 import './index.css';
 
 createRoot(document.getElementById('root')).render(
@@ -16,11 +17,12 @@ createRoot(document.getElementById('root')).render(
       <Router>
         <Routes>
           <Route path="/" element={<App />} />
-         <Route path='/Home' element={<LoggedUser/>}/>
+          <Route path='/Home' element={<LoggedUser/>}/>
           <Route path="/Login" element={<Login />} />
           <Route path="/CriarConta" element={<Createaccount />} />
           <Route path="/CriarCempresa" element={<BusinessCreate />} />
           <Route path="/User" element={<User />} />
+          <Route path="/Vacancy" element={<Vacancy />} />
           <Route path="*" element={<ErrorPage error={{ message: 'Página não encontrada' }} />} />
        
          

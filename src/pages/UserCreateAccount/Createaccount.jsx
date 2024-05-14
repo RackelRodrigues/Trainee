@@ -98,6 +98,7 @@ font-weight: 200;
 color: ${(props) => props.color};
 cursor: pointer;
 margin-left: 5px;
+text-decoration: none;
 `;
 
 
@@ -274,7 +275,7 @@ Receber Notificações
 </AlignCenter>
                  <Button>Criar Conta</Button>
                 <ConteinerLink>
-                 <Forget color="#000">Já tem uma conta?</Forget> <Forget color="#6554E1">Faça Login</Forget>
+                 <Forget color="#000" href="/Login">Já tem uma conta?</Forget> <Forget color="#6554E1" href="/Login">Faça Login</Forget>
               </ConteinerLink>
               </Conteinerall>
 </Conteiner>

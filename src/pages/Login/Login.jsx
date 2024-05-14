@@ -5,11 +5,10 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FiLock } from "react-icons/fi";
-import Header from "../../components/Header/header";
 
 const Background = styled.div`
 background-color: #161A1D;
-height: 90vh;
+height: 100vh;
 display: flex;
 justify-content: center;
 `;
@@ -157,7 +156,7 @@ const Login = () =>{
 };
     return (
         <>
-        <Header/>
+     
         <Background>
             <Conteinerall>
             <Conteiner>
