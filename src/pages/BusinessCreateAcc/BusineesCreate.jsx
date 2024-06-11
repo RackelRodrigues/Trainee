@@ -22,7 +22,7 @@ width: 650px;
 height: 600px;
 background-color: #D9D9D9;
 border-radius: 15px;
-
+margin-top: 80px;
 `;
 
 
@@ -158,7 +158,6 @@ const BusinessCreate = () =>{
 
   return(
   <>
-  <Header/>
   <Background>
 <Conteiner>
 <Conteinerall>
