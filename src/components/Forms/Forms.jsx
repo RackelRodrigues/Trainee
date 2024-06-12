@@ -4,11 +4,17 @@ import styled from "styled-components";
 
 const Conteiner = styled.div``;
 
-const Label = styled.label``;
+const Label = styled.label`
+font-family: Raleway;
+font-size: 25px;
+font-weight: 300;
+
+
+`;
 
 const Conteinerinput = styled.div`
-width: 400px;
-height: 50px;
+ width: ${props => props.width || '400px'};
+height: ${props => props.height || '50px'};
 border-radius: 7px;
 background-color: #A8A29E;
 display: flex;
@@ -32,7 +38,43 @@ border: none;
 
 
 const Forms = ()=>{
-    return(<></>)
+    return(<>
+    <Label>Qual o título da vaga ?</Label>
+    <Conteinerinput>
+        <Input/>
+    </Conteinerinput>
+
+    <Label>Qual o prazo de inscrição para a vaga ofertada ?</Label>
+    <Conteinerinput>
+        <Input/>
+    </Conteinerinput>
+    <Label>Qual é o modelo de trabalho para esta posição ?</Label> 
+    <Conteinerinput>
+        <Input/>
+    </Conteinerinput>
+    <Label>Qual é a descrição para essa vaga de estágio ?</Label> 
+    <Conteinerinput>
+        <Input/>
+    </Conteinerinput>
+    <Label>Quais são  as  princiapais responsabilidades do estagiário ?</Label> 
+    <Conteinerinput>
+        <Input/>
+    </Conteinerinput>
+    <Label>Quais são as exigências necessárias para se inscrever na vaga?</Label>
+    <Conteinerinput>
+        <Input/>
+    </Conteinerinput>
+    <Label>Quais são os benefícios ofericidos aos estagiários selecionados ?</Label>
+    <Conteinerinput>
+        <Input/>
+    </Conteinerinput>
+     <Label>Quais são as linguagens de programação, hard skills e soft skills 
+    necessárias para este estágio?</Label>
+    <Conteinerinput>
+        <Input/>
+    </Conteinerinput>
+    
+    </>)
 }
 
 
