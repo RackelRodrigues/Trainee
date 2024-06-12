@@ -5,11 +5,12 @@ const ConteinerAll = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
+padding-bottom: 20px;
 
 `;
 
 const Card = styled.div`
-width: 1200px;
+width: 1100px;
 height: 120px;
 background-color: #CACFE7;
 display: flex;

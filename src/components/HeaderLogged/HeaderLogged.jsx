@@ -15,6 +15,7 @@ background-color: #161A1D;
   padding: 0 20px; 
   position: sticky; 
   top: 0;
+  z-index: 10; 
   `;
 
 

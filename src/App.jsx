@@ -241,7 +241,7 @@ function App() {
 
     </Conteinerlanding>
 
-<IoArrowDownCircleOutline size={45} color='#000'/>
+
 </BoxLogo>
    </ConteinerWhite>
    <Conteinergirl>
@@ -252,8 +252,11 @@ function App() {
     </MaiorBoll>
     <Boll1/>
    </Conteinergirl>
+   <IoArrowDownCircleOutline size={45} color='#000'/>
    </Container>
+   
    </Background>
+  
    <Mainlanding/>
    <Footer/>
     </>

@@ -9,6 +9,7 @@ import ErrorPage from './pages/Erropage/Erropage.jsx';
 import LoggedUser from './pages/loggedUser/loggedUser.jsx';
 import User from './pages/User/User.jsx';
 import Vacancy from './pages/Vacancy/vacancy.jsx';
+import Managebusiness from "./pages/ManageBusiness/ManageBussiness.jsx";
 import './index.css';
 
 createRoot(document.getElementById('root')).render(
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/CriarCempresa" element={<BusinessCreate />} />
           <Route path="/User" element={<User />} />
           <Route path="/Vacancy" element={<Vacancy />} />
+          <Route path="/ManageBusiness" element={<Managebusiness />} />
           <Route path="*" element={<ErrorPage error={{ message: 'Página não encontrada' }} />} />
        
          
