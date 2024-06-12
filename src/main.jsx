@@ -1,6 +1,6 @@
 import React from 'react';
 import App from './App.jsx';
-import { createRoot } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login/Login.jsx';
 import BusinessCreate from './pages/BusinessCreateAcc/BusineesCreate.jsx';
@@ -13,23 +13,19 @@ import Managebusiness from "./pages/ManageBusiness/ManageBussiness.jsx";
 import './index.css';
 
 createRoot(document.getElementById('root')).render(
-
-    <React.StrictMode>
-      <Router>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path='/Home' element={<LoggedUser/>}/>
-          <Route path="/Login" element={<Login />} />
-          <Route path="/CriarConta" element={<Createaccount />} />
-          <Route path="/CriarCempresa" element={<BusinessCreate />} />
-          <Route path="/User" element={<User />} />
-          <Route path="/Vacancy" element={<Vacancy />} />
-          <Route path="/ManageBusiness" element={<Managebusiness />} />
-          <Route path="*" element={<ErrorPage error={{ message: 'Página não encontrada' }} />} />
-       
-         
-        </Routes>
-      </Router>
-    </React.StrictMode>
-
+  <React.StrictMode>
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/Home" element={<LoggedUser />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/CriarConta" element={<Createaccount />} />
+        <Route path="/CriarCempresa" element={<BusinessCreate />} />
+        <Route path="/User" element={<User />} />
+        <Route path="/Vacancy" element={<Vacancy />} />
+        <Route path="/ManageBusiness" element={<Managebusiness />} />
+        <Route path="*" element={<ErrorPage error={{ message: 'Página não encontrada' }} />} />
+      </Routes>
+    </Router>
+  </React.StrictMode>
 );
