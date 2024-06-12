@@ -92,6 +92,7 @@ const Forget = styled.a`
   color: ${(props) => props.color};
   cursor: pointer;
   margin-left: 5px;
+  text-decoration: none;
 `;
 
 const Button = styled.button`
@@ -266,35 +267,34 @@ const CreateAccount = () => {
                   <FaRegEyeSlash size={20} />
                 )}
               </ToggleButton>
-            </Conteinerinput>
+</Conteinerinput>
 
-            <AlignCenter>
-              <Conteinerinputbirthday>
-                <BoxSvg>
-                  <RiCake2Line size={20} color="#000" />
-                </BoxSvg>
+<AlignCenter>
+  <Conteinerinputbirthday>
+    <BoxSvg>
+      <RiCake2Line size={20} color="#000" />
+    </BoxSvg>
 
-                <Input type="date" placeholder="15/05/2001" />
-              </Conteinerinputbirthday>
-              <Boxcheckbox>
-                <Checkbox
-                  type="checkbox"
-                  checked={notificacoes}
-                  onChange={(e) => setNotificacoes(e.target.checked)}
-                />
-                Receber Notificações
-              </Boxcheckbox>
-            </AlignCenter>
-            <Button onClick={handleClickRegister}>Criar Conta</Button>
-            <ConteinerLink onClick={handleClickLogin}>
-              <Forget color="#000">Já tem uma conta?</Forget>{" "}
-              <Forget color="#6554E1">Faça Login</Forget>
-            </ConteinerLink>
-          </Conteinerall>
-        </Conteiner>
-      </Background>
-    </>
-  );
-};
+    <Input type="date" placeholder="15/05/2001" />
+  </Conteinerinputbirthday>
+  <Boxcheckbox>
+    <Checkbox
+      type="checkbox"
+      checked={notificacoes}
+      onChange={(e) => setNotificacoes(e.target.checked)}
+    />
+    Receber Notificações
+  </Boxcheckbox>
+</AlignCenter>
+<Button onClick={handleClickRegister}>Criar Conta</Button>
+<ConteinerLink onClick={handleClickLogin}>
+  <Forget color="#000">Já tem uma conta?</Forget>{" "}
+  <Forget color="#6554E1">Faça Login</Forget>
+</ConteinerLink>
+</Conteinerall>
+</Conteiner>
+</Background>
+</>
+);
 
 export default CreateAccount;

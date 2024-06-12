@@ -5,6 +5,8 @@ import { IoArrowDownCircleOutline } from "react-icons/io5";
 import Mainlanding from "./components/mainLanding/Mainlanding";
 import { useNavigate } from "react-router-dom";
 
+import Footer from './components/Footer/Footer';
+
 const Background = styled.div`
   background-color: #161a1d;
   height: 100vh;
@@ -93,7 +95,7 @@ const Text = styled.h2`
   width: 400px;
 `;
 
-const ButtonNow = styled.button`
+const ButtonNow = styled.a`
   width: 150px;
   height: 40px;
   border-radius: 15px;
@@ -104,6 +106,9 @@ const ButtonNow = styled.button`
   font-weight: 200;
   margin-right: 110px;
   color: #cacfe7;
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
 `;
 
 const ButtonStart = styled.button`
@@ -182,6 +187,7 @@ function App() {
   const handleLoginClick = () => {
     navigate("/Login");
   };
+
   return (
     <>
       <Background>
@@ -191,11 +197,20 @@ function App() {
             <NameLogo>Trainee</NameLogo>
           </BoxLogo>
           <ConteinerButtons>
-            <ButtonsHeader>Home</ButtonsHeader>
-            <ButtonsHeader>Quem Somos</ButtonsHeader>
+            <ButtonsHeader href="/">Home</ButtonsHeader>
+            <ButtonsHeader
+              onClick={() => {
+                const historiaSection = document.getElementById("quem-somos");
+                if (historiaSection) {
+                  historiaSection.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
+              Quem Somos
+            </ButtonsHeader>
             <ButtonsHeader onClick={handleLoginClick}>Login</ButtonsHeader>
           </ConteinerButtons>
-          <ButtonNow>Contact Us</ButtonNow>
+          <ButtonNow href="#">Contact Us</ButtonNow>
         </ConteinerHeader>
         <Container>
           <ConteinerWhite>
@@ -207,7 +222,6 @@ function App() {
                 </Text>
                 <ButtonStart>Comece Agora</ButtonStart>
               </Conteinerlanding>
-
               <IoArrowDownCircleOutline size={45} color="#000" />
             </BoxLogo>
           </ConteinerWhite>
@@ -221,6 +235,7 @@ function App() {
         </Container>
       </Background>
       <Mainlanding />
+      <Footer />
     </>
   );
 }

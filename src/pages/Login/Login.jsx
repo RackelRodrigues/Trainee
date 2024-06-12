@@ -11,11 +11,14 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
+
 const Background = styled.div`
-  background-color: #161a1d;
-  height: 90vh;
-  display: flex;
-  justify-content: center;
+background-color: #161A1D;
+height: 100vh;
+display: flex;
+justify-content: center;
+
 `;
 
 const Conteiner = styled.div`
@@ -145,6 +148,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
@@ -223,6 +227,17 @@ const Login = () => {
                 <Forget color="#6554E1" onClick={handleClickRegister}>
                   Inscreva-se
                 </Forget>
+              </ConteinerLink>
+            </AlignCenter>
+          </Conteiner>
+        </Conteinerall>
+      </Background>
+    </>
+  );
+};
+
+export default Login;
+
               </ConteinerLink>
             </AlignCenter>
           </Conteiner>
