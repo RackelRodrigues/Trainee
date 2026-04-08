@@ -1,6 +1,8 @@
-# Trainee
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2cdf7bd9-3464-418e-acc4-02851d58c356" width="100" />
+</p>
 
-![Logo do projeto](<img width="176" height="176" alt="Image" src="https://github.com/user-attachments/assets/2cdf7bd9-3464-418e-acc4-02851d58c356" />)
+<h1 align="center">Trainee</h1>
 
 ## 📌 Sobre o projeto
 
@@ -80,7 +82,7 @@ http://localhost:3000
 
 ## 🌐 Deploy
 
-👉 [Acessar aplicação](SEU_LINK_AQUI)
+👉 Em breve
 
 ---
 
