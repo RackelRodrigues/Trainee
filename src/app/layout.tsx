@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../styles/global.scss";
+import { Inter, Raleway, Handjet } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+const raleway = Raleway({
+  variable: "--font-raleway",
+  subsets: ["latin"],
+});
+const handjet = Handjet({
+  variable: "--font-handjet",
   subsets: ["latin"],
 });
 
@@ -11,6 +19,15 @@ export const metadata: Metadata = {
   title: "Trainee",
   description:
     "Plataforma para encontrar vagas de trainee e estágio na área de tecnologia.",
+  icons: {
+    icon: "/images/logo.svg",
+  },
+  openGraph: {
+    siteName: "Trainee",
+    title: "Trainee",
+    description:
+      "Plataforma para encontrar vagas de trainee e estágio na área de tecnologia.",
+  },
 };
 
 export default function RootLayout({
@@ -19,7 +36,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} `}>
+    <html
+      lang="pt"
+      className={`${inter.variable} ${raleway.variable} ${handjet.variable}`}
+    >
       <body>{children}</body>
     </html>
   );

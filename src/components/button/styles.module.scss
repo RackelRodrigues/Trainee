@@ -1,0 +1,45 @@
+.button {
+  display: flex;
+  align-items: center;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  font-size: clamp(1rem, 1vw, 1.25rem);
+  font-weight: 700;
+  cursor: pointer;
+}
+.primary {
+  background-color: transparent;
+  // color: $neutral-Grey-500;
+
+  &:hover {
+    // color: $primary-blue-950;
+  }
+}
+
+.secondary {
+  // background-color: $primary-blue-950;
+  // color: $white;
+}
+
+.terciary {
+  // background-color: $primary-Purple-600;
+  // color: $white;
+}
+
+.secondary:hover,
+.terciary:hover {
+  opacity: 0.5;
+}
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (min-width: 1600px) {
+  .button {
+    padding: 2.5rem;
+    font-size: 1.5rem;
+  }
+}
