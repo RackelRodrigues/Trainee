@@ -1,16 +1,17 @@
 import { ComponentProps } from "react";
 import styles from "./styles.module.scss";
 
-interface props extends ComponentProps<"button"> {}
+interface Props extends ComponentProps<"button"> {
+  variant?: "default" | "primary" | "secondary" | "terciary";
+}
 
-const Button = ({ className, ...props }: props) => {
+const Button = ({ className, variant = "default", ...props }: Props) => {
   return (
     <button
-      className={`${styles.button} 
-       ${className ? styles[className] : ""}
-      `}
+      data-variant={variant}
+      className={`${styles.button} ${className ?? ""}`}
       {...props}
-    ></button>
+    />
   );
 };
 

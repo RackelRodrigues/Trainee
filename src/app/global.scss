@@ -1,4 +1,4 @@
-:global(*) {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,6 +11,8 @@ body {
   transition:
     background 0.2s ease,
     color 0.2s ease;
+
+  overflow-x: hidden;
 }
 
 :root {
@@ -25,9 +27,12 @@ body {
   --color-info: #38bdf8;
   --color-success: #22c55e;
 
-  --color-disabled: #9e9e9e;
+  --color-disabled: #bdbdbd;
 
   --color-accent: #3f54cc;
+
+  --color-error: #dc2626;
+  --color-error-bg: #fee2e2;
 }
 
 .dark {
@@ -45,6 +50,8 @@ body {
   --color-disabled: #9e9e9e;
 
   --color-accent: #3f54cc;
+  --color-error: #dc2626;
+  --color-error-bg: #fee2e2;
 }
 // Breakpoints
 $xl: 1440px; // desktop grande
@@ -52,3 +59,10 @@ $lg: 1024px; // desktop normal
 $md: 768px; // tablet
 $sm: 576px; // celular grande
 $xs: 320px; // celular pequeno
+
+.labelError {
+  font-family: var(--font-inter);
+  color: var(--color-error);
+  font-size: 0.875rem;
+  font-weight: 200;
+}

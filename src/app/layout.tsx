@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "../styles/global.scss";
+import "./global.scss";
 import { Inter, Raleway, Handjet } from "next/font/google";
 
 const inter = Inter({
@@ -36,11 +36,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="pt"
-      className={`${inter.variable} ${raleway.variable} ${handjet.variable}`}
-    >
-      <body>{children}</body>
+    <html lang="pt-BR">
+      <body
+        className={`${inter.variable} ${raleway.variable} ${handjet.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

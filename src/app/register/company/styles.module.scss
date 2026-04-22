@@ -1,0 +1,166 @@
+@use "../../global.scss" as *;
+
+.page {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  align-items: center;
+}
+
+.container {
+  padding: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  > form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+}
+
+.logoTrainee {
+  border-radius: 0.4rem;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.08);
+}
+
+.nameTrainee {
+  text-align: center;
+  font-family: var(--font-handjet);
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--color-bg);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  h1 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--color-text);
+    font-weight: bold;
+  }
+}
+
+.imageLogin {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--color-primary-dark);
+  overflow: hidden;
+}
+
+.imageContainer {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 680px;
+  height: auto;
+  position: relative;
+}
+
+.logoName {
+  color: var(--color-bg);
+  font-family: var(--font-handjet);
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-left: 1.5rem;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+
+  a {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0.5rem 0;
+  color: var(--color-text-secondary);
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid var(--color-text-secondary);
+  }
+}
+
+.createAccount {
+  text-align: center;
+}
+
+.link {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  text-decoration: none;
+  font-weight: 400;
+
+  text-align: center;
+
+  span {
+    color: var(--color-accent);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+@media (max-width: $md) {
+  .imageLogin {
+    display: none;
+  }
+
+  .container {
+    max-width: none;
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+
+  .page {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: $lg) {
+  .container {
+    max-width: none;
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+  .image {
+    width: 500px;
+    height: auto;
+  }
+}
