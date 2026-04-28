@@ -17,9 +17,16 @@ body {
 
 :root {
   --color-bg: #f8f9fa;
+  --color-white: #ffffff;
+
+  --color-secondary-highlight: #c026d3;
 
   --color-primary: #7c3aed;
   --color-primary-dark: #6d28d9;
+
+  --color-primary-light: #6554e1;
+
+  --color-bg-card: #cacfe7;
 
   --color-text: #020617;
   --color-text-secondary: #94a3b8;
@@ -37,6 +44,7 @@ body {
 
 .dark {
   --color-bg: #020617;
+  --color-bg-card: #3730a3;
 
   --color-primary: #7c3aed;
   --color-primary-dark: #6d28d9;

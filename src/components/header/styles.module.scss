@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: var(--color-white);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+
+  a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.nameTrainee {
+  text-align: center;
+  font-family: var(--font-handjet);
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--color-text);
+}
+.headerContent {
+  display: flex;
+  flex-direction: row;
+}
+
+.username {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 10%;
+}
+
+.userIcon {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  //   padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
