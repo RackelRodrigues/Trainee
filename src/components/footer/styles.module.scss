@@ -1,0 +1,103 @@
+@use "../../app/global.scss" as *;
+
+.footer {
+  display: flex;
+  background-color: var(--color-primary-dark);
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  // justify-content: space-between;
+
+  // padding: 0 1rem;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+  img {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+    border-radius: 0.3rem;
+    background-color: var(--color-white);
+    padding: 0.2rem;
+  }
+}
+
+.nameTrainee {
+  text-align: center;
+  font-family: var(--font-handjet);
+  font-weight: 400;
+  font-size: 2rem;
+  color: var(--color-white);
+}
+
+.linkTitle {
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 600;
+}
+.links {
+  display: flex;
+  gap: 4rem;
+  width: 100%;
+  max-width: 50rem;
+  // margin-right: 2rem;
+}
+
+.navigation,
+.students,
+.support {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.navigation a,
+.students a,
+.support a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 200;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-secondary-highlight);
+  }
+}
+
+.copyright {
+  display: flex;
+
+  flex-direction: column;
+  align-items: end;
+  gap: 0.8rem;
+  p {
+    color: var(--color-white);
+  }
+}
+
+.socialMedia {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.socialIcon {
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

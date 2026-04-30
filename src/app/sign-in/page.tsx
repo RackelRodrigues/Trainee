@@ -42,8 +42,11 @@ export default function SignIn() {
         },
         body: JSON.stringify(data),
       });
+      console.log("body:", data);
+      console.log(res);
 
       const result = await res.json();
+      console.log(result);
       reset();
       await fetch("/api/auth/set-token", {
         method: "POST",

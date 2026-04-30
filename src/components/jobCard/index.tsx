@@ -10,7 +10,7 @@ interface JobCardProps {
   description: string;
   skills: string[];
   workType: "full-time" | "part-time" | "internship";
-  workLocation: "remote" | "on-site" | "hybrid";
+  workLocation: "remote" | string;
   deadline: string;
 }
 
@@ -45,7 +45,7 @@ export default function JobCard({
         ) : (
           <span>
             <SlLocationPin size={24} />
-            cidade, estado
+            {workLocation}
           </span>
         )}
       </div>

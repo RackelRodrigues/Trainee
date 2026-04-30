@@ -24,7 +24,7 @@ export default function Header({
           width={50}
           height={50}
         />
-        <h1 className={styles.nameTrainee}>Trainee</h1>
+        <h1 className={styles.nameTrainee}>trainee</h1>
       </div>
 
       <div>
@@ -48,11 +48,11 @@ export default function Header({
           />
         ) : (
           <span className={styles.userIcon}>
-            <GoPerson size={25} color="#000" />
+            <GoPerson size={25} color="#fff" />
           </span>
         )}
 
-        <p>{username || "Rackel Rodrigues"}</p>
+        <p>{username}</p>
       </span>
     </header>
   );

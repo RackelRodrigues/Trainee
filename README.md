@@ -82,7 +82,7 @@ http://localhost:3000
 
 ## 🌐 Deploy
 
-👉 Em breve
+[Trainee](https://trainee-sandy.vercel.app/sign-in)
 
 ---
 
