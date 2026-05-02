@@ -9,17 +9,26 @@ import { GrDocument } from "react-icons/gr";
 import { AiOutlineLink } from "react-icons/ai";
 import { LuGithub } from "react-icons/lu";
 import { CiLinkedin } from "react-icons/ci";
+import JobCard from "@/components/jobCard";
+import * as Input from "../../../components/input";
 
 type Props = {
-  user: {
+  user?: {
     isComplete: boolean;
+    name?: string;
+    username?: string;
+    location?: string;
+    resume?: string;
+    portfolio?: string;
+    linkedin?: string;
+    github?: string;
   };
   params: {
     username: string;
   };
 };
 
-export default function CandidateProfile({ params }: Props) {
+export default function CandidateProfile({ params, user }: Props) {
   const { username } = params;
 
   return (
@@ -27,37 +36,95 @@ export default function CandidateProfile({ params }: Props) {
       <Header username={username} />
       <div className={styles.content}>
         <div className={styles.profile}>
-          <Image src={Logo} alt="Logo" />
-          <h1></h1>
-          <p>Liam da silva Ferreira</p>
+          <Image src={Logo} alt="Logo" width={160} height={160} />
 
-          <span>
-            <FaLocationDot size={20} color="#000" />
-            <p>São Paulo, SP</p>
-          </span>
-          <span>
-            <GrDocument size={20} color="#000" />
-            <a href="#">Currículo</a>
-          </span>
-          <span>
-            <AiOutlineLink size={20} color="#000" />
-            <a href="#">Portfólio</a>
-          </span>
+          <h1>Liam da Silva Ferreira</h1>
+          <p>22 anos</p>
+
+          <div className={styles.information}>
+            <span className={styles.location}>
+              {user?.location ? (
+                <>
+                  <FaLocationDot size={20} color="#000" />
+                  <p>{user?.location}</p>
+                </>
+              ) : (
+                <>
+                  <FaLocationDot size={20} color="#000" />
+                  <Input.Field />
+                </>
+              )}
+            </span>
+            <span className={styles.document}>
+              <GrDocument size={20} color="#000" />
+              <a href="#">Currículo</a>
+            </span>
+            <span className={styles.portfolio}>
+              <AiOutlineLink size={20} color="#000" />
+              <a href="#">Portfólio</a>
+            </span>
+          </div>
 
           <span className={styles.socialMedia}>
             <h2>Rede Sociais</h2>
 
-            <a href="#">
-              <CiLinkedin size={25} color="#000" />
-            </a>
-            <a href="#">
-              <LuGithub size={25} color="#000" />
-            </a>
+            {user?.linkedin ? (
+              <a href="#">
+                <CiLinkedin size={25} color="#000" />
+                https://linkedin.com/in/liam-ferreira
+              </a>
+            ) : (
+              <a href="#">
+                <CiLinkedin size={25} color="#000" />
+                <Input.Field />
+              </a>
+            )}
+
+            {user?.github ? (
+              <a href="#">
+                <LuGithub size={25} color="#000" />
+                https://github.com/liam-ferreira
+              </a>
+            ) : (
+              <a href="#">
+                <LuGithub size={25} color="#000" />
+                <Input.Field />
+              </a>
+            )}
           </span>
         </div>
         <div className={styles.inscriptions}>
-          <h2>Minhas Incrições</h2>
-          <p>Informações adicionais sobre o candidato...</p>
+          <h2 className={styles.title}>Minhas Incrições</h2>
+          <JobCard
+            title="Desenvolvedor Front-end"
+            company="Tech Company"
+            companyLogo={Logo}
+            description="lorem dsjncsdjcnjdscnsdkjcncvniefnw"
+            skills={["React", "TypeScript", "CSS"]}
+            deadline="23/43/1233"
+            workLocation="patos -PN"
+            workType="full-time"
+          />{" "}
+          <JobCard
+            title="Desenvolvedor Front-end"
+            company="Tech Company"
+            companyLogo={Logo}
+            description="lorem dsjncsdjcnjdscnsdkjcncvniefnw"
+            skills={["React", "TypeScript", "CSS"]}
+            deadline="23/43/1233"
+            workLocation="patos -PN"
+            workType="full-time"
+          />
+          <JobCard
+            title="Desenvolvedor Front-end"
+            company="Tech Company"
+            companyLogo={Logo}
+            description="lorem dsjncsdjcnjdscnsdkjcncvniefnw"
+            skills={["React", "TypeScript", "CSS"]}
+            deadline="23/43/1233"
+            workLocation="patos -PN"
+            workType="full-time"
+          />
         </div>
       </div>
     </div>

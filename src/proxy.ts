@@ -26,31 +26,31 @@ export function proxy(request: NextRequest) {
   const publicRoute = publicRoutes.find((route) => route.path === path);
   const authToken = request.cookies.get("token")?.value;
 
-  if (!authToken && publicRoute) {
-    return NextResponse.next();
-  }
+  // if (!authToken && publicRoute) {
+  //   return NextResponse.next();
+  // }
 
-  if (!authToken && !publicRoute) {
-    const redirectUrl = request.nextUrl.clone();
-    redirectUrl.pathname = REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTER;
-    return NextResponse.redirect(redirectUrl);
-  }
+  // if (!authToken && !publicRoute) {
+  //   const redirectUrl = request.nextUrl.clone();
+  //   redirectUrl.pathname = REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTER;
+  //   return NextResponse.redirect(redirectUrl);
+  // }
 
-  if (authToken && publicRoute && publicRoute.whenAutenticated === "redirect") {
-    const redirectUrl = request.nextUrl.clone();
-    redirectUrl.pathname = "/";
-    return NextResponse.redirect(redirectUrl);
-  }
+  // if (authToken && publicRoute && publicRoute.whenAutenticated === "redirect") {
+  //   const redirectUrl = request.nextUrl.clone();
+  //   redirectUrl.pathname = "/";
+  //   return NextResponse.redirect(redirectUrl);
+  // }
 
-  if (authToken && isTokenExpired(authToken)) {
-    const redirectUrl = request.nextUrl.clone();
-    redirectUrl.pathname = "/sign-in";
+  // if (authToken && isTokenExpired(authToken)) {
+  //   const redirectUrl = request.nextUrl.clone();
+  //   redirectUrl.pathname = "/sign-in";
 
-    const response = NextResponse.redirect(redirectUrl);
-    response.cookies.delete("token");
+  //   const response = NextResponse.redirect(redirectUrl);
+  //   response.cookies.delete("token");
 
-    return response;
-  }
+  //   return response;
+  // }
 
   return NextResponse.next();
 }
