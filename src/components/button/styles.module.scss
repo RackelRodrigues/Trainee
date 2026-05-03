@@ -41,8 +41,8 @@
 
 .button[data-variant="terciary"] {
   background-color: transparent;
-  color: var(--color-bg);
-  border: 1px solid var(--color-primary);
+  color: var(--color-text);
+  border: none;
 }
 
 .button[data-variant="primary"]:hover,

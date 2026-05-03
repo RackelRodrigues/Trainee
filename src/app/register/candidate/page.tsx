@@ -11,7 +11,10 @@ import * as Input from "@/components/input";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 import Image from "next/image";
-import { signUpCandidateSchema, TSignUpSchema } from "@/types/singUpCandidate";
+import {
+  signUpCandidateSchema,
+  TSignUpSchema,
+} from "@/schemas/singUpCandidate";
 import { useForm } from "react-hook-form";
 import { CiUnlock } from "react-icons/ci";
 import { RiCake2Line } from "react-icons/ri";

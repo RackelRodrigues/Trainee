@@ -12,7 +12,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AiOutlineMail } from "react-icons/ai";
 import { CiLock } from "react-icons/ci";
-import { signInSchema, TSignInSchema } from "@/types/signIn";
+import { signInSchema, TSignInSchema } from "@/schemas/signIn";
 import Checkbox from "@/components/checkbox";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

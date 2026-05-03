@@ -1,0 +1,85 @@
+@use "../global.scss" as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+
+  img {
+    border-radius: 0.8rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    // color: var(--color-primary);
+  }
+}
+
+.forgetpassword {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--color-icon-detail);
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //   height: 100%;
+  //   width: 100%;
+}
+
+.content {
+  max-width: 45rem;
+  max-height: 50rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: var(--color-white);
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    font-size: 1.5rem;
+    color: var(--color-text);
+  }
+
+  label {
+    font-size: 1rem;
+    // color: var(--color-text-secondary);
+    align-self: flex-start;
+    margin-top: 2rem;
+  }
+}
+
+.padlock {
+  border-radius: 50%;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.codeContainer {
+  display: flex;
+  gap: 0.8rem;
+  width: 50%;
+}
+
+.codeButtons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.2rem;
+}

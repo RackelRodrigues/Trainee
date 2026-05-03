@@ -9,7 +9,7 @@ import Apple from "../../../../public/images/logos/apple.png";
 import Button from "@/components/button";
 import * as Input from "@/components/input";
 import Image from "next/image";
-import { signUpCompanySchema, TSignUpSchema } from "@/types/singUpCompany";
+import { signUpCompanySchema, TSignUpSchema } from "@/schemas/singUpCompany";
 import { useForm } from "react-hook-form";
 import { CiUnlock } from "react-icons/ci";
 import { zodResolver } from "@hookform/resolvers/zod";
