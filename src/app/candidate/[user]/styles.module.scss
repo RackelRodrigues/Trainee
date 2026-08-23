@@ -1,4 +1,4 @@
-@use "../../global.scss" as *;
+@use "../../styles/global.scss" as *;
 
 .content {
   display: grid;
@@ -72,6 +72,12 @@
   display: flex;
 }
 
+.field {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-error);
+}
+
 .socialMedia {
   display: flex;
   flex-direction: column;
@@ -89,6 +95,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    cursor: pointer;
 
     &:hover {
       color: var(--color-primary);
@@ -98,4 +105,40 @@
 
 .inscriptions {
   background-color: var(--color-bg-card);
+  padding: 0 0.8rem;
+}
+
+.jobsContainer {
+  max-height: 29rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    cursor: pointer;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #cfcfcf;
+    border-radius: 62rem;
+  }
+}
+
+.anchor {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  gap: 2rem;
+  margin: 0.8rem 0;
+  width: 100%;
+  a {
+    color: var(--color-text);
+    font-family: var(--font-raleway);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: var(--color-detail);
+  }
 }

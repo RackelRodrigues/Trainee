@@ -1,4 +1,4 @@
-@use "../../app/global.scss" as *;
+@use "../../app/styles/global.scss" as *;
 
 .jobCard {
   display: flex;
@@ -75,4 +75,39 @@
 .applyButton {
   flex-shrink: 0;
   min-width: 5rem;
+}
+
+.jobListing {
+  background-color: var(--color-detail);
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  padding: 1rem;
+  border-radius: 0.7rem;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.label {
+  font-family: var(--font-raleway);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.caption {
+  font-family: var(--font-raleway);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.containerButton {
+  max-width: 6rem;
+}
+
+.tagStatus {
+  background-color: #dde3ea;
+  color: var(--color-text);
+  padding: 0.2rem 0.5rem;
+  border-radius: 10rem;
 }

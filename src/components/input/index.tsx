@@ -16,6 +16,6 @@ export function Root({ isError, ...props }: ContextProps) {
   );
 }
 interface InputProps extends ComponentProps<"input"> {}
-export function Field({ ...props }: InputProps) {
-  return <input className={`${styles.input}`} {...props} />;
+export function Field({ className, ...props }: InputProps) {
+  return <input className={`${styles.input} ${className ?? ""}`} {...props} />;
 }

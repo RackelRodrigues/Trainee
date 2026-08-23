@@ -12,6 +12,7 @@ import { BsQuestionCircle } from "react-icons/bs";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function ProfileSettings() {
   const router = useRouter();
@@ -19,6 +20,8 @@ export default function ProfileSettings() {
   function handleLogout() {
     // Lógica para deslogar o usuário, como limpar tokens de autenticação, redirecionar para a página de login, etc.
     console.log("Usuário deslogado");
+
+    router.push("/sign-in");
   }
 
   function handleProfile() {
@@ -68,24 +71,26 @@ export default function ProfileSettings() {
           </span>
           <p>Notificações</p>
         </div>
-        <div className={styles.button}>
+        <Link className={styles.button} href="/help-center">
           <span className={styles.icon}>
             <BsQuestionCircle size={25} color="var(--primary-color)" />
           </span>
-          <p>Central de duvidas</p>
-        </div>
+          <span>Central de duvidas</span>
+        </Link>
         <div className={styles.button}>
           <span className={styles.icon}>
             <IoSettingsOutline size={25} color="var(--primary-color)" />
           </span>
           <p>Configurações</p>
         </div>
-        <div className={styles.button} onClick={handleLogout}>
+        <a className={styles.button} onClick={handleLogout}>
           <span className={styles.iconLogout}>
             <IoIosLogOut size={25} color="var(--primary-color)" />
           </span>
           <p>Sair</p>
-        </div>
+        </a>
+
+        <a href="http://"></a>
       </div>
     </div>
   );

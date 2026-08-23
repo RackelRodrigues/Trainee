@@ -1,4 +1,4 @@
-@use "../../global.scss" as *;
+@use "../../styles/global.scss" as *;
 
 .profile {
   display: flex;
@@ -22,7 +22,6 @@
   flex-direction: column;
   gap: 1rem;
   width: 100%;
-  // max-width: 400px;
 }
 
 .button {

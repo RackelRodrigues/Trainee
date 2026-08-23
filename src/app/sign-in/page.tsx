@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 export default function SignIn() {
   const {
@@ -42,11 +43,9 @@ export default function SignIn() {
         },
         body: JSON.stringify(data),
       });
-      console.log("body:", data);
-      console.log(res);
 
       const result = await res.json();
-      console.log(result);
+
       reset();
       await fetch("/api/auth/set-token", {
         method: "POST",
@@ -99,15 +98,17 @@ export default function SignIn() {
         </div>
         <form>
           <div>
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <Input.Root isError={!!errors.email}>
               <AiOutlineMail size={23} />
               <Input.Field
+                id="email"
                 placeholder="Email"
                 type="email"
                 aria-invalid={errors.email ? "true" : "false"}
                 {...register("email")}
                 autoComplete="email"
+                aria-describedby={errors.email ? "email-error" : undefined}
               />
             </Input.Root>
             {errors.email && (
@@ -115,15 +116,19 @@ export default function SignIn() {
             )}
           </div>
           <div>
-            <label>Password</label>
+            <label htmlFor="password">Password</label>
             <Input.Root isError={!!errors.password}>
               <CiLock size={25} />
               <Input.Field
+                id="password"
                 placeholder="Password"
                 type={showPassword ? "text" : "password"}
                 aria-invalid={errors.password ? "true" : "false"}
                 {...register("password")}
                 autoComplete="current-password"
+                aria-describedby={
+                  errors.password ? "password-error" : undefined
+                }
               />
               <span onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? (
@@ -147,7 +152,11 @@ export default function SignIn() {
           </div>
         </form>
 
-        <Button onClick={() => handleSubmit(onSubmit)()} variant="primary">
+        <Button
+          onClick={() => handleSubmit(onSubmit)()}
+          variant="primary"
+          aria-label="Login"
+        >
           Login
         </Button>
 
@@ -155,7 +164,10 @@ export default function SignIn() {
           <span>ou</span>
         </div>
         <div className={styles.buttonsContainer}>
-          <Button className={styles.buttonGoogle}>
+          <Button
+            className={styles.buttonGoogle}
+            aria-label="Entrar com Google"
+          >
             <Image
               src={Google}
               alt="logo google"
@@ -164,7 +176,10 @@ export default function SignIn() {
               height={20}
             />
           </Button>
-          <Button className={styles.buttonFacebook}>
+          <Button
+            className={styles.buttonFacebook}
+            aria-label="Entrar com Facebook"
+          >
             <Image
               src={Facebook}
               alt="logo facebook"
@@ -181,9 +196,9 @@ export default function SignIn() {
         </div>
 
         <div className={styles.createAccount}>
-          <a href="/register/company" className={styles.link}>
+          <Link href="/register/company" className={styles.link}>
             Publique suas vagas conosco! <span>Inscreva sua empresa aqui</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

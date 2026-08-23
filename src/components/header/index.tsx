@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Logo from "../../../public/images/logo.svg";
 import styles from "./styles.module.scss";
 import { GoPerson } from "react-icons/go";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface HeaderProps {
   isCandidate?: boolean;
@@ -14,9 +18,19 @@ export default function Header({
   username,
   photoUrl,
 }: HeaderProps) {
+  const router = useRouter();
+
+  // function handleProfile() {
+  //   router.push("/candidate/profilesettings");
+  // }
+
+  function handleHome() {
+    router.push("/");
+  }
+
   return (
     <header className={styles.header}>
-      <div className={styles.headerContent}>
+      <div className={styles.headerContent} onClick={handleHome}>
         <Image
           src={Logo}
           alt="logo trainee"
@@ -28,16 +42,25 @@ export default function Header({
       </div>
 
       <div>
-        {!isCandidate && (
+        {isCandidate && (
           <nav className={styles.nav}>
-            <a href="#">Home</a>
-            <a href="#">Vagas</a>
-            <a href="#">Notificações</a>
+            <a>
+              <Link href="/">Home</Link>
+            </a>
+            <a>
+              <Link href="/jobs">Vagas</Link>
+            </a>
+            <a>
+              <Link href="/notifications">Notificações</Link>
+            </a>
           </nav>
         )}
       </div>
 
-      <span className={styles.username}>
+      <span
+        className={styles.username}
+        onClick={() => router.push("/candidate/profilesettings")}
+      >
         {photoUrl ? (
           <Image
             src={photoUrl}

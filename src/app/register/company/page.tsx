@@ -9,8 +9,9 @@ import Apple from "../../../../public/images/logos/apple.png";
 import Button from "@/components/button";
 import * as Input from "@/components/input";
 import Image from "next/image";
-import { signUpCompanySchema, TSignUpSchema } from "@/schemas/singUpCompany";
-import { useForm } from "react-hook-form";
+import { signUpCompanySchema } from "@/schemas/singUpCompany";
+import type { TSignUpSchema } from "@/schemas/singUpCompany";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { CiUnlock } from "react-icons/ci";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AiOutlineMail } from "react-icons/ai";
@@ -20,6 +21,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { api } from "@/server/api";
+import { formatCNPJ, unformatCNPJ } from "@/utils/formatCPNJ";
+import { getCurrentDate } from "@/utils/getCurrentDate";
 
 export default function CompanyRegister() {
   const router = useRouter();
@@ -35,13 +39,47 @@ export default function CompanyRegister() {
     resolver: zodResolver(signUpCompanySchema),
   });
 
-  const onSubmit = (data: TSignUpSchema) => {
-    console.log(data);
-    reset();
+  const onSubmit: SubmitHandler<TSignUpSchema> = async (data) => {
+    const { confirmPassword, ...body } = data;
 
-    router.push("/");
+    console.log(body);
 
-    toast.success("Conta criada com sucesso! ");
+    const payload = {
+      ...body,
+      cnpj: unformatCNPJ(body.cnpj),
+      companyStartDate: getCurrentDate(),
+    };
+    console.log("PAYLOAD:", payload);
+    console.log("JSON:", JSON.stringify(payload));
+    try {
+      const result = await api("/enterprise/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify(payload),
+      });
+      reset();
+      await fetch("/api/auth/set-token", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token: result.token }),
+      });
+
+      toast.success("Conta criada com sucesso! ");
+
+      router.push("/");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error(err.message);
+      } else {
+        console.error(err);
+      }
+      toast.error("Erro ao criar conta. Por favor, tente novamente.");
+    }
   };
 
   return (
@@ -64,27 +102,29 @@ export default function CompanyRegister() {
         </div>
         <form>
           <div>
-            <label>Nome da Empresa</label>
-            <Input.Root isError={!!errors.nameCompany}>
+            <label htmlFor="Nome da empresa">Nome da Empresa</label>
+            <Input.Root isError={!!errors.companyName}>
               <AiOutlineMail size={23} />
               <Input.Field
+                id="Nome da empresa"
                 placeholder="Nome da Empresa "
                 type="text"
-                aria-invalid={errors.nameCompany ? "true" : "false"}
-                {...register("nameCompany")}
+                aria-invalid={errors.companyName ? "true" : "false"}
+                {...register("companyName")}
               />
             </Input.Root>
-            {errors.nameCompany && (
+            {errors.companyName && (
               <span className={styles.labelError}>
-                {errors.nameCompany.message}
+                {errors.companyName.message}
               </span>
             )}
           </div>
           <div>
-            <label>Email</label>
+            <label htmlFor="Email">Email</label>
             <Input.Root isError={!!errors.email}>
               <CiLock size={25} />
               <Input.Field
+                id="Email"
                 placeholder="Email"
                 type="email"
                 aria-invalid={errors.email ? "true" : "false"}
@@ -96,14 +136,19 @@ export default function CompanyRegister() {
             )}
           </div>
           <div>
-            <label>CNPJ</label>
+            <label htmlFor="CNPJ">CNPJ</label>
             <Input.Root isError={!!errors.cnpj}>
               <IoDocumentTextOutline size={25} />
               <Input.Field
+                id="CNPJ"
                 placeholder="CNPJ"
                 type="text"
                 aria-invalid={errors.cnpj ? "true" : "false"}
-                {...register("cnpj")}
+                {...register("cnpj", {
+                  onChange: (e) => {
+                    e.target.value = formatCNPJ(e.target.value);
+                  },
+                })}
               />
             </Input.Root>
             {errors.cnpj && (
@@ -111,13 +156,14 @@ export default function CompanyRegister() {
             )}
           </div>
           <div>
-            <label>Senha</label>
+            <label htmlFor="Senha">Senha</label>
             <Input.Root isError={!!errors.password}>
               <CiUnlock size={25} />
 
               <Input.Field
+                id="senha"
                 placeholder="Senha"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 aria-invalid={errors.password ? "true" : "false"}
                 {...register("password")}
               />
@@ -136,12 +182,13 @@ export default function CompanyRegister() {
             )}
           </div>
           <div>
-            <label>Confirmar Senha</label>
+            <label htmlFor="Confirma sua senha">Confirmar Senha</label>
             <Input.Root isError={!!errors.confirmPassword}>
               <CiLock size={25} />
               <Input.Field
+                id="confirma sua senha"
                 placeholder="Confirmar Senha"
-                type="password"
+                type={showConfirmPassword ? "text" : "password"}
                 aria-invalid={errors.confirmPassword ? "true" : "false"}
                 {...register("confirmPassword")}
               />
@@ -200,7 +247,7 @@ export default function CompanyRegister() {
           </Button>
         </div>
         <div className={styles.createAccount}>
-          <a href="/login" className={styles.link}>
+          <a href="/sign-in" className={styles.link}>
             Já tem uma conta? <span>Entre na sua conta</span>
           </a>
         </div>

@@ -5,6 +5,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -34,7 +35,9 @@ export function Footer() {
         <div className={styles.links}>
           <div className={styles.navigation}>
             <h2 className={styles.linkTitle}>Navegação</h2>
-            <a href="/">Home</a>
+            <a>
+              <Link href="/">Home</Link>
+            </a>
             <a href="#">Vagas</a>
             <a href="#">Notificações</a>
           </div>

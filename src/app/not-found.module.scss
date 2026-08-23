@@ -1,0 +1,124 @@
+@use "./styles/global.scss" as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  box-shadow: inset;
+
+  img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 0.2rem;
+    box-shadow: inset 0 0 0.2rem rgba(0, 0, 0, 0.5);
+  }
+
+  a {
+    padding: 0.3rem;
+    background-color: var(--color-error-bg);
+
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  image {
+    border-radius: 0.2rem;
+  }
+  h1 {
+    text-align: center;
+    font-family: var(--font-handjet);
+  }
+}
+
+.userInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  color: var(--color-white);
+  border-radius: 20rem;
+  height: 2rem;
+  padding: 0 0.5rem;
+
+  background-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+}
+
+.notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1.3rem;
+    font-weight: 200;
+  }
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+
+  img {
+    width: 100%;
+    max-width: 50rem;
+    height: auto;
+  }
+}
+
+@media (max-width: $md) {
+  .header {
+    padding: 0.5rem 0;
+    flex-direction: row;
+    gap: 0.9rem;
+
+    img {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+
+  .userInfo {
+    gap: 0.2rem;
+    height: 1.5rem;
+    // padding: 0 0.3rem;
+    font-size: 0.8rem;
+    width: 100%;
+    p {
+      width: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  .logoContainer {
+    gap: 0.2rem;
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .notFoundContainer {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}

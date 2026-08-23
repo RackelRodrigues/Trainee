@@ -8,7 +8,7 @@ import { Footer } from "@/components/footer";
 export default function Home() {
   return (
     <div className={styles.page}>
-      <Header username="Rackel" />
+      <Header isCandidate={true} username="Rackel" />
       <main className={styles.main}>
         <JobCard
           companyLogo="/images/logo.svg"
@@ -19,6 +19,7 @@ export default function Home() {
           workType="full-time"
           workLocation="remote"
           deadline="24/04/2024"
+          variant="job-application"
         />
         <JobCard
           companyLogo="/images/logo.svg"
@@ -29,6 +30,7 @@ export default function Home() {
           workType="full-time"
           workLocation="remote"
           deadline="24/04/2024"
+          variant="job-application"
         />
         <JobCard
           companyLogo="/images/logo.svg"
@@ -39,6 +41,7 @@ export default function Home() {
           workType="full-time"
           workLocation="remote"
           deadline="24/04/2024"
+          variant="job-application"
         />
         <JobCard
           companyLogo="/images/logo.svg"
@@ -49,6 +52,7 @@ export default function Home() {
           workType="full-time"
           workLocation="remote"
           deadline="24/04/2024"
+          variant="job-application"
         />
         <JobCard
           companyLogo="/images/logo.svg"
@@ -59,6 +63,7 @@ export default function Home() {
           workType="full-time"
           workLocation="remote"
           deadline="24/04/2024"
+          variant="job-application"
         />
       </main>
 

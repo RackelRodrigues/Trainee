@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./global.scss";
+import "./styles/global.scss";
 import { Inter, Raleway, Handjet } from "next/font/google";
 
 const inter = Inter({

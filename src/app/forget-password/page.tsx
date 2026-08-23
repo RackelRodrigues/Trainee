@@ -17,7 +17,7 @@ import { verifyCodeSchema, TVerifyCodeSchema } from "@/schemas/verifyCode";
 import { useRef } from "react";
 
 export default function ForgetPassword() {
-  const [steps, setSteps] = useState(2);
+  const [steps, setSteps] = useState(1);
   const router = useRouter();
   const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
 
@@ -61,85 +61,83 @@ export default function ForgetPassword() {
       </header>
 
       <main className={styles.main}>
-        <div className={styles.content}>
-          {steps === 1 && (
-            <Modal>
-              <Image src={Logo} alt="Logo" width={150} height={150} />
-              <h1>Recuperar senha</h1>
+        {steps === 1 && (
+          <Modal>
+            <Image src={Logo} alt="Logo" width={150} height={150} />
+            <h1>Recuperar senha</h1>
 
-              <label>Email</label>
-              <Input.Root>
-                <AiOutlineMail size={20} color="var(--primary-color)" />
+            <label>Email</label>
+            <Input.Root>
+              <AiOutlineMail size={20} color="var(--primary-color)" />
 
-                <Input.Field placeholder="Digite seu email" />
-              </Input.Root>
-              <Button variant="primary">Enviar</Button>
-              <Button onClick={handleBackToLogin} variant="terciary">
-                <MdArrowBackIos />
-                Voltar para o login
+              <Input.Field placeholder="Digite seu email" />
+            </Input.Root>
+            <Button variant="primary">Enviar</Button>
+            <Button onClick={handleBackToLogin} variant="terciary">
+              <MdArrowBackIos />
+              Voltar para o login
+            </Button>
+          </Modal>
+        )}
+        {steps === 2 && (
+          <Modal>
+            <span className={styles.padlock}>
+              <IoMdLock color="var(--color-primary)" size={30} />
+            </span>
+            <h1>Codigo de verificação</h1>
+            <p>digite o código que enviamos para seu e-mail.</p>
+
+            <div className={styles.codeContainer}>
+              {watch("code").map((_, index) => (
+                <Input.Root key={index}>
+                  <Input.Field
+                    maxLength={1}
+                    {...register(`code.${index}`)}
+                    ref={(el) => {
+                      inputsRef.current[index] = el;
+                    }}
+                    onChange={(e) => handleChange(e, index)}
+                  />
+                </Input.Root>
+              ))}
+            </div>
+
+            <div className={styles.codeButtons}>
+              <Button variant="secondary">Cancelar</Button>
+
+              <Button variant="primary" onClick={handleSubmit(onSubmit)}>
+                Verificar
               </Button>
-            </Modal>
-          )}
-          {steps === 2 && (
-            <Modal>
-              <span className={styles.padlock}>
-                <IoMdLock color="var(--color-primary)" size={30} />
-              </span>
-              <h1>Codigo de verificação</h1>
-              <p>digite o código que enviamos para seu e-mail.</p>
+            </div>
+          </Modal>
+        )}
 
-              <div className={styles.codeContainer}>
-                {watch("code").map((_, index) => (
-                  <Input.Root key={index}>
-                    <Input.Field
-                      maxLength={1}
-                      {...register(`code.${index}`)}
-                      ref={(el) => {
-                        inputsRef.current[index] = el;
-                      }}
-                      onChange={(e) => handleChange(e, index)}
-                    />
-                  </Input.Root>
-                ))}
-              </div>
+        {steps === 3 && (
+          <Modal>
+            <Image src={Logo} alt="Logo" width={150} height={150} />
+            <h1>Crie sua nova senha</h1>
+            <p>Crie sua nova sneha segura para acessar sua conta novamente</p>
 
-              <div className={styles.codeButtons}>
-                <Button variant="secondary">Cancelar</Button>
+            <div>
+              <label htmlFor="">Senha</label>
+              <Input.Root>
+                <Input.Field placeholder="senha" />
+              </Input.Root>
+            </div>
+            <div>
+              <label htmlFor="">Confirme sua senha</label>
+              <Input.Root>
+                <Input.Field placeholder="confirme sua senha" />
+              </Input.Root>
+            </div>
 
-                <Button variant="primary" onClick={handleSubmit(onSubmit)}>
-                  Verificar
-                </Button>
-              </div>
-            </Modal>
-          )}
+            <div className={styles.codeButtons}>
+              <Button variant="secondary">Cancelar</Button>
 
-          {steps === 3 && (
-            <Modal>
-              <Image src={Logo} alt="Logo" width={150} height={150} />
-              <h1>Crie sua nova senha</h1>
-              <p>Crie sua nova sneha segura para acessar sua conta novamente</p>
-
-              <div>
-                <label htmlFor="">Senha</label>
-                <Input.Root>
-                  <Input.Field placeholder="senha" />
-                </Input.Root>
-              </div>
-              <div>
-                <label htmlFor="">Confirme sua senha</label>
-                <Input.Root>
-                  <Input.Field placeholder="confirme sua senha" />
-                </Input.Root>
-              </div>
-
-              <div className={styles.codeButtons}>
-                <Button variant="secondary">Cancelar</Button>
-
-                <Button variant="primary">Verificar</Button>
-              </div>
-            </Modal>
-          )}
-        </div>
+              <Button variant="primary">Verificar</Button>
+            </div>
+          </Modal>
+        )}
       </main>
     </div>
   );

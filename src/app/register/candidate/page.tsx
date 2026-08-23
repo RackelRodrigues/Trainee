@@ -41,7 +41,7 @@ export default function CandidateRegister() {
 
   const onSubmit = async (data: TSignUpSchema) => {
     const { confirmPassword, ...body } = data;
-
+    console.log(body);
     try {
       const result = await api("/user/register", {
         method: "POST",
@@ -62,8 +62,12 @@ export default function CandidateRegister() {
       toast.success("Conta criada com sucesso! ");
 
       router.push("/");
-    } catch (err: any) {
-      console.error(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error(err.message);
+      } else {
+        console.error(err);
+      }
       toast.error("Erro ao criar conta. Por favor, tente novamente.");
     }
   };
@@ -88,10 +92,11 @@ export default function CandidateRegister() {
         </div>
         <form>
           <div>
-            <label>Nome </label>
+            <label htmlFor="Nome">Nome </label>
             <Input.Root isError={!!errors.name}>
               <GoPerson size={23} />
               <Input.Field
+                id="Nome"
                 placeholder="Nome"
                 type="text"
                 aria-invalid={errors.name ? "true" : "false"}
@@ -103,10 +108,11 @@ export default function CandidateRegister() {
             )}
           </div>
           <div>
-            <label>Email</label>
+            <label htmlFor="Email">Email</label>
             <Input.Root isError={!!errors.email}>
               <CiLock size={25} />
               <Input.Field
+                id="Email"
                 placeholder="Email"
                 type="email"
                 aria-invalid={errors.email ? "true" : "false"}
@@ -119,10 +125,11 @@ export default function CandidateRegister() {
           </div>
 
           <div>
-            <label>Data de Nascimento</label>
+            <label htmlFor="Data de nascimento">Data de Nascimento</label>
             <Input.Root isError={!!errors.dateOfBirth}>
               <RiCake2Line size={25} />
               <Input.Field
+                id="Data de nascimento"
                 placeholder="Data de Nascimento"
                 type="date"
                 aria-invalid={errors.dateOfBirth ? "true" : "false"}
@@ -137,10 +144,11 @@ export default function CandidateRegister() {
           </div>
 
           <div>
-            <label>Senha</label>
+            <label htmlFor="Senha">Senha</label>
             <Input.Root isError={!!errors.password}>
               <CiUnlock size={25} />
               <Input.Field
+                id="Senha"
                 placeholder="Senha"
                 type={showPassword ? "text" : "password"}
                 aria-invalid={errors.password ? "true" : "false"}
@@ -161,11 +169,12 @@ export default function CandidateRegister() {
             )}
           </div>
           <div>
-            <label>Confirmar Senha</label>
+            <label htmlFor="Confirmar sua senha">Confirmar Senha</label>
             <Input.Root isError={!!errors.confirmPassword}>
               <CiLock size={25} />
 
               <Input.Field
+                id="Confirmar sua senha "
                 placeholder="Confirmar Senha"
                 type={showConfirmPassword ? "text" : "password"}
                 aria-invalid={errors.confirmPassword ? "true" : "false"}
@@ -197,7 +206,10 @@ export default function CandidateRegister() {
           <span>ou</span>
         </div>
         <div className={styles.buttonsContainer}>
-          <Button className={styles.buttonGoogle}>
+          <Button
+            className={styles.buttonGoogle}
+            aria-label="Entrar com Google"
+          >
             <Image
               src={Google}
               alt="logo google"
@@ -206,7 +218,10 @@ export default function CandidateRegister() {
               height={20}
             />
           </Button>
-          <Button className={styles.buttonFacebook}>
+          <Button
+            className={styles.buttonFacebook}
+            aria-label="Entrar com Facebook"
+          >
             <Image
               src={Facebook}
               alt="logo facebook"
@@ -215,7 +230,7 @@ export default function CandidateRegister() {
               height={20}
             />
           </Button>
-          <Button className={styles.buttonApple}>
+          <Button className={styles.buttonApple} aria-label="Entrar com Apple">
             <Image
               src={Apple}
               alt="logo apple"
@@ -226,7 +241,7 @@ export default function CandidateRegister() {
           </Button>
         </div>
         <div className={styles.createAccount}>
-          <a href="/login" className={styles.link}>
+          <a href="/sign-in" className={styles.link}>
             Já tem uma conta? <span>Entre na sua conta</span>
           </a>
         </div>
