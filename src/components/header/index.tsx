@@ -44,15 +44,11 @@ export default function Header({
       <div>
         {isCandidate && (
           <nav className={styles.nav}>
-            <a>
-              <Link href="/">Home</Link>
-            </a>
-            <a>
-              <Link href="/jobs">Vagas</Link>
-            </a>
-            <a>
-              <Link href="/notifications">Notificações</Link>
-            </a>
+            <Link href="/">Home</Link>
+
+            <Link href="/jobs">Vagas</Link>
+
+            <Link href="/notifications">Notificações</Link>
           </nav>
         )}
       </div>

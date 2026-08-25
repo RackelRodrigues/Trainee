@@ -1,0 +1,29 @@
+.notification {
+  background-color: var(--color-white);
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10%;
+}
+
+.notificationDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.notificationIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  border-radius: 10%;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+}

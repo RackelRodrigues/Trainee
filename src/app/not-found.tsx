@@ -20,11 +20,9 @@ export default function NotFound() {
           <h1>Trainee</h1>
         </div>
 
-        <a>
-          <Link href="/">
-            <PiHouseLight color="red" size={23} />
-          </Link>
-        </a>
+        <Link href="/">
+          <PiHouseLight color="red" size={23} />
+        </Link>
 
         <span className={styles.userInfo}>
           <div>

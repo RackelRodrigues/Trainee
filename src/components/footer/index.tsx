@@ -35,9 +35,9 @@ export function Footer() {
         <div className={styles.links}>
           <div className={styles.navigation}>
             <h2 className={styles.linkTitle}>Navegação</h2>
-            <a>
-              <Link href="/">Home</Link>
-            </a>
+
+            <Link href="/">Home</Link>
+
             <a href="#">Vagas</a>
             <a href="#">Notificações</a>
           </div>

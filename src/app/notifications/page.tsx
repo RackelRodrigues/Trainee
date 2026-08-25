@@ -7,10 +7,7 @@ interface NotificationsProps {
   read?: boolean;
 }
 
-export default function Notifications({
-  urgency = "low",
-  read = false,
-}: NotificationsProps) {
+export default function Notifications() {
   return (
     <>
       <Header isCandidate={true} username="John Doe" />
@@ -18,25 +15,28 @@ export default function Notifications({
       <div>
         <div
           className={styles.notification}
-          onClick={() => console.log("Notificação clicada")}
+          // onClick={() => console.log("Notificação clicada")}
         >
-          <div>
-            <span>
-              <IoMdNotificationsOutline
-                size={20}
-                color="var(--primary-color)"
-              />
-            </span>
-          </div>
+          <div className={styles.notificationDetails}>
+            <div className={styles.notificationIcon}>
+              <span className={styles.iconBackground}>
+                <IoMdNotificationsOutline
+                  size={40}
+                  color="var(--primary-color)"
+                />
+              </span>
+            </div>
 
-          <div className={styles.notificationContent}>
-            <h1>techWave </h1>
-            <p>
-              voce avancou apos a triagem e foi selecionado para a próxima etapa
-            </p>
+            <div className={styles.notificationContent}>
+              <h1>techWave </h1>
+              <p>
+                voce avancou apos a triagem e foi selecionado para a próxima
+                etapa
+              </p>
+            </div>
           </div>
           <div className={styles.notificationTime}>
-            <div>
+            <div className={styles.time}>
               <IoMdTime size={20} color="var(--primary-color)" />
               <p>15 abr as 14:30</p>
             </div>
